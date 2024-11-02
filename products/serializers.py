@@ -1,5 +1,5 @@
 # Создание сериализаторов для проверки и валидирование данных каждой модели
-from rest_framework import serializers
+from rest_framework import serializers, status
 from .models import ProductType, ProductPrice, Product
 
 

@@ -28,10 +28,10 @@ class ProductPrice(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name="Title")
-    quantity = models.PositiveIntegerField(validators=[MinValueValidator(1)], verbose_name="Quantity")
+    quantity = models.PositiveIntegerField(verbose_name="Quantity")
     barcode = models.CharField(max_length=13, verbose_name="Barcode")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated")
-    price_id = models.ForeignKey(ProductPrice, on_delete=models.CASCADE, verbose_name="Price")
+    price_id = models.OneToOneField(ProductPrice, on_delete=models.CASCADE, verbose_name="Price")
     type_id = models.ForeignKey(ProductType, on_delete=models.CASCADE, verbose_name="Type")
 
     class Meta:
