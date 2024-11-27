@@ -39,7 +39,7 @@ The service of products storage, realizing CRUD-operations with additional funct
 1. Cloning a repository.
     ```bash
    git clone https://github.com/Ilya-kutylev/Products-storage-service.git
-   cd Products-storage-service
+   cd service-storage-django
    ```
 2. Installing and updating package managers (pip, pipenv).
     ```bash
