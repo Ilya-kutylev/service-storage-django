@@ -5,7 +5,6 @@ from products.views import ProductViewSet, ProductPriceViewSet, ProductTypeViewS
 
 router = DefaultRouter()
 
-# Регистрация всех ViewSet для моделей
 router.register('products', ProductViewSet)
 router.register('product-types', ProductTypeViewSet)
 router.register('product-prices', ProductPriceViewSet)

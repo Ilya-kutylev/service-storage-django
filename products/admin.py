@@ -1,4 +1,3 @@
-# Регистрация моделей в админ-панели с настройкой отображения, поиска и фильтров
 from django.contrib import admin
 from .models import Product, ProductType, ProductPrice
 

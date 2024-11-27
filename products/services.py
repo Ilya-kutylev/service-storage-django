@@ -1,12 +1,19 @@
 from rest_framework.exceptions import ValidationError
-from .models import Product
+
+from products.models import Product
+from products.repositorys import ProductRepository
 
 
-# Функция уменьшающая остатки товара и проверяющая, что количество не меньше запрашиваемого
-def reduce_stock(product: Product, quantity: int) -> bool:
-    if product.quantity < quantity:
-        raise ValidationError("Insufficient stock")
+class ProductService:
+    @staticmethod
+    def reduce_stock(product_id: int, quantity: int) -> Product:
+        """
+        Reduces the remaining stock of goods in the warehouse.
+        """
+        product = ProductRepository.get_product_by_id(product_id)
 
-    product.quantity -= quantity
-    product.save()
-    return True
+        if product.quantity < quantity:
+            raise ValidationError("Not enough stock available to reduce.")
+
+        updated_product = ProductRepository.reduce_stock(product, quantity)
+        return updated_product
